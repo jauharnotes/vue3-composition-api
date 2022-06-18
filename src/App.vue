@@ -1,5 +1,5 @@
 <script>
-import { reactive } from 'vue';
+import { reactive, toRefs } from 'vue';
 export default {
   setup() {
     const user = reactive({
@@ -12,7 +12,7 @@ export default {
     }, 2000);
 
     return {
-      user,
+      ...toRefs(user),
     };
   },
 };
@@ -21,8 +21,8 @@ export default {
 <template>
   <h2>Name People</h2>
   <ol>
-    <li>Name: {{ user.name }}</li>
-    <li>Age: {{ user.age }}</li>
+    <li>Name: {{ name }}</li>
+    <li>Age: {{ age }}</li>
   </ol>
 </template>
 
